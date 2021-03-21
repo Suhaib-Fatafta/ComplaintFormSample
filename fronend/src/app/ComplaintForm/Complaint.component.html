@@ -1,0 +1,104 @@
+<div *ngIf="(isCustomer()) else elseBlock">
+
+    <label> Complaint Title: </label>
+    <input type="text" (input)="enterComplaintTitle($event)">
+    <br><br>
+
+    <label>Name: </label>
+    <input type="text" (input)="enterUserName($event)">
+    <br><br>
+    <label>Are these problems recurring? </label>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="Yes" name="IsRecurring"
+                (change)="isRecurringChange($event)">Yes
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="No" name="IsRecurring"
+                (change)="isRecurringChange($event)">No
+        </label>
+    </div>
+
+    <br><br>
+
+    <label>Choose complaints? </label>
+    <div *ngFor="let item of checkboxes">
+        <input id="checkBox" class="form-check-input" type="checkbox" (click)="selectComplaint($event, item)"
+            value="item">
+        {{ item }}
+    </div>
+
+    <br><br>
+
+    <label>Complaint Details: </label>
+    <div class="form-check-inline">
+        <textarea rows="4" cols="50" (input)="enterComplaintDetail($event)"></textarea>
+    </div>
+    <br><br>
+    <button type="button" (click)="submit()">Submit</button>
+
+    <button type="button" (click)="showPreviousComplaints()">Show Your Complaints</button>
+</div>
+
+<br><br>
+<div *ngIf="showTable">
+    <table>
+        <thead>
+            <tr>
+                <td>Complaint Title</td>
+                <td>Status</td>
+                <td>Created Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let userForm of userForms">
+                <td>{{userForm.ComplaintTitle}}</td>
+                <td>{{userForm.StatusTitle}}</td>
+                <td>{{userForm.LogDate | date:'medium'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<ng-template #elseBlock>
+    <table>
+        <thead>
+            <tr>
+                <td>Complaint Title</td>
+                <td>Complaint Details</td>
+                <td>Created Date</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let form of userForms">
+                <td>{{form.ComplaintTitle}}</td>
+                <td>{{form.ComplaintDetails}}</td>
+                <td>{{form.LogDate | date:'medium'}}</td>
+                <td>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="1" [name]="form.FormId"
+                                (change)="onStatusChange($event,form.FormId)" [checked]="form.StatusId==1">Pending
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="2" [name]="form.FormId"
+                                (change)="onStatusChange($event,form.FormId)" [checked]="form.StatusId==2">Resolved
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="3" [name]="form.FormId"
+                                (change)="onStatusChange($event,form.FormId)" [checked]="form.StatusId==3">Dismissed
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

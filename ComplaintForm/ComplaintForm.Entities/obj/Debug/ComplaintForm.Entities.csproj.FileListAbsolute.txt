@@ -1,0 +1,6 @@
+C:\Users\Anas Fatafta\Desktop\ComplaintForm\ComplaintForm.Entities\bin\Debug\ComplaintForm.Entities.dll
+C:\Users\Anas Fatafta\Desktop\ComplaintForm\ComplaintForm.Entities\bin\Debug\ComplaintForm.Entities.pdb
+C:\Users\Anas Fatafta\Desktop\ComplaintForm\ComplaintForm.Entities\obj\Debug\ComplaintForm.Entities.csprojAssemblyReference.cache
+C:\Users\Anas Fatafta\Desktop\ComplaintForm\ComplaintForm.Entities\obj\Debug\ComplaintForm.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Anas Fatafta\Desktop\ComplaintForm\ComplaintForm.Entities\obj\Debug\ComplaintForm.Entities.dll
+C:\Users\Anas Fatafta\Desktop\ComplaintForm\ComplaintForm.Entities\obj\Debug\ComplaintForm.Entities.pdb
